@@ -1,0 +1,13 @@
+<div class="searchbar-main-container">
+    <form class="searchbar-form" [formGroup]="form">
+        <mat-form-field class="searchbar-input">
+          <mat-label>Search by name</mat-label>
+          <input matInput formControlName="name">
+        </mat-form-field>
+        <span class="searchbar-error" *ngIf="searchError">Search must have a minimum of 5 characters</span>
+    </form>
+    <div class="searchbar-icon-container" (click)="handleSubmit()">
+        <img src="assets/icons/search-icon.png" alt="Search"/>
+    </div>
+</div>
+

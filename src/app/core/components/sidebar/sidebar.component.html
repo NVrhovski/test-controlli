@@ -1,0 +1,7 @@
+<div [class]="showSidebar ? 'sidebar-main-container__shown' : 'sidebar-main-container'">
+    <img src="assets/icons/close-icon.png" alt="Close" class="sidebar-close-icon" (click)="hideSidebar()"/>
+    <ul class="sidebar-links-container" (click)="hideSidebar()">
+        <li routerLink="movies">Movies</li>
+        <li routerLink="movies/favorites">Favorites</li>
+    </ul>
+</div>

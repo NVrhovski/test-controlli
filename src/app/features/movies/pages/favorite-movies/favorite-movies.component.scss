@@ -1,0 +1,94 @@
+.favorite-movies-main-container
+{
+    padding: 16px;
+    .favorite-movies-filters-form
+    {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0 0 16px 0;
+        @media (min-width: 650px)
+        {
+            flex-direction: row;
+            align-items: start;
+            gap: 16px;
+        }
+        .mat-mdc-form-field
+        {
+            width: 100%;
+            @media (min-width: 650px)
+            {
+                width: 30%;
+            }
+        }
+        button
+        {
+            margin: 12px 0  ;
+            @media (min-width: 650px)
+            {
+                margin: 12px 0 0 0;
+            }
+        }
+    }
+    .favorite-movies-card-container
+    {
+        display: grid;
+        grid-template-columns: auto;
+        place-items: center;
+        gap: 16px;
+        @media (min-width: 650px) {
+            grid-template-columns: 1fr 1fr;
+        }
+        @media (min-width: 1000px) {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+        .example-card
+        {
+            width: 80%;
+            height: 100%;
+            .card-title
+            {
+                height: 65px;
+            }
+            .card-image
+            {
+                width: 100%;
+            }
+            .card-info
+            {
+                font-size: 16px;
+                margin: 10px 0;
+                span
+                {
+                    font-weight: 700;
+                }
+            }
+            .card-actions
+            {
+                margin-top: auto;
+                display: flex;
+                gap: 10px;
+            }
+        }
+    }
+    .favorite-movies-description-form
+    {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        label
+        {
+            color: #3f51b5;
+            font-weight: 500;
+            font-size: 20px;
+        }
+        textarea
+        {
+            height: 200px;
+        }
+        span
+        {
+            color: red;
+        }
+    }
+}

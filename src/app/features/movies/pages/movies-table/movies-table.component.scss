@@ -1,0 +1,29 @@
+.movies-table
+{
+    .mdc-data-table__cell, .mdc-data-table__header-cell
+    {
+        padding: 0 8px 0 8px;
+        @media (min-width: 800px) {
+            padding: 0 16px 0 16px;
+        }
+    }
+    padding: 0 16px;
+    img
+    {
+        width: 100%;
+        @media (min-width: 800px) {
+            width: 200px;
+        }
+        &.favorite-icon
+        {
+            width: 30px;
+            cursor: pointer;
+        }
+    }
+}
+
+.not-found-text
+{
+    padding: 0 16px;
+    font-size: 20px;
+}

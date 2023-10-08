@@ -1,0 +1,15 @@
+<header>
+    <mat-toolbar color="primary">
+        <span>Test Controlli</span>
+        <span class="example-spacer"></span>
+        <div class="nav-items-container">
+            <span routerLink="movies">Movies</span>
+            <span routerLink="movies/favorites">Favorites</span>
+        </div>
+        <button class="menu-icon" (click)="handleShowSidebar()">
+            <img src="assets/icons/menu-icon.png" alt="Menu"/>
+        </button>
+    </mat-toolbar>
+    <app-sidebar [showSidebar]="showSidebar" (hideSidebarEvent)="handleHideSidebar()"></app-sidebar>
+</header>
+

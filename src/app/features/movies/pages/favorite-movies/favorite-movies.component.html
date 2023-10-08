@@ -1,0 +1,62 @@
+<main class="favorite-movies-main-container">
+    <form class="favorite-movies-filters-form" [formGroup]="filterForm" (submit)="handleFilter()">
+      <mat-form-field>
+        <mat-label>Year</mat-label>
+        <input matInput formControlName="year">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Type</mat-label>
+        <mat-select formControlName="type">
+          <mat-option value="">-- Select movie type --</mat-option>
+          <mat-option value="movie">Movie</mat-option>
+          <mat-option value="series">Series</mat-option>
+          <mat-option value="episode">Episode</mat-option>
+          <mat-option value="game">Game</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <button mat-raised-button color="primary" type="submit">Filter</button>
+      <button mat-raised-button color="secondary" type="button" (click)="handleResetFilters()">Reset filters</button>
+    </form>
+
+    <div class="favorite-movies-card-container">
+      <ng-container *ngFor="let movie of favoriteMovies">
+        <mat-card *ngIf="!movie.hide" class="example-card">
+          <mat-card-header>
+            <mat-card-title class="card-title">{{movie.Title}}</mat-card-title>
+          </mat-card-header>
+          <img class="card-image" mat-card-image src="{{movie.Poster}}" alt="{{movie.Title}}">
+          <mat-card-content>
+            <p class="card-info"><span>Year:</span> {{movie.Year}}</p>
+            <p class="card-info"><span>Type:</span> {{movie.Type}}</p>
+            <p class="card-info" *ngIf="movie.description">{{movie.description}}</p>
+          </mat-card-content>
+          <mat-card-actions class="card-actions">
+            <button data-bs-toggle="modal" data-bs-target="#exampleModal" mat-raised-button color="primary" (click)="selectFavoriteMovie(movie.imdbID)">ADD DESCRIPTION</button>
+            <button mat-button color="primary" (click)="removeFromFavorites(movie.imdbID)">REMOVE</button>
+          </mat-card-actions>
+        </mat-card>
+      </ng-container>
+    </div>
+    
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Add a description</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form [formGroup]="descriptionForm" class="favorite-movies-description-form">
+                <label for="description">Insert description</label>
+                <textarea formControlName="description" name="description"></textarea>
+                <span *ngIf="descriptionError">Description cannot be empty</span>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button #closeModal type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" (click)="handleDescriptionSave()">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+</main>
